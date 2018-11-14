@@ -37,6 +37,51 @@ Pour réaliser cela l'application sera décomposée en sous service :
     <artifactId>aspose-pdf</artifactId>
     <version>18.9</version>
 </dependency>
+<dependency>
+    <groupId>args4j</groupId>
+    <artifactId>args4j</artifactId>
+    <version>2.32</version>
+</dependency>
+<dependency>
+    <groupId>org.docx4j</groupId>
+    <artifactId>docx4j</artifactId>
+    <version>3.2.1</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>3.12</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>3.12</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-scratchpad</artifactId>
+    <version>3.12</version>
+</dependency>
+<dependency>
+    <groupId>fr.opensagres.xdocreport</groupId>
+    <artifactId>org.apache.poi.xwpf.converter.pdf</artifactId>
+    <version>1.0.5</version>
+</dependency>
+<dependency>
+    <groupId>com.itextpdf</groupId>
+    <artifactId>itextpdf</artifactId>
+    <version>5.5.6</version>
+</dependency>
+<dependency>
+    <groupId>fr.opensagres.xdocreport</groupId>
+    <artifactId>org.odftoolkit.odfdom.converter.pdf</artifactId>
+    <version>1.0.5</version>
+</dependency>
+<dependency>
+    <groupId>fr.opensagres.xdocreport</groupId>
+    <artifactId>fr.opensagres.xdocreport.itext.extension</artifactId>
+    <version>1.0.5</version>
+</dependency>
 ```
 ## Envoi email
 ```
@@ -93,6 +138,32 @@ Pour réaliser cela l'application sera décomposée en sous service :
     <version>0.30</version>
 </dependency>        
 ```       
+# Configuration
+##Docx4j
+```properties
+docx4j.Log4j.Configurator.disabled=true
+```
+##Log4j
+```properties
+#log4j.rootLogger=debug, stdout, R
+log4j.rootLogger=OFF
+
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+
+# Pattern to output the caller's file name and line number.
+log4j.appender.stdout.layout.ConversionPattern=%5p [%t] (%F:%L) - %m%n
+
+log4j.appender.R=org.apache.log4j.RollingFileAppender
+log4j.appender.R.File=example.log
+
+log4j.appender.R.MaxFileSize=100KB
+# Keep one backup file
+log4j.appender.R.MaxBackupIndex=1
+
+log4j.appender.R.layout=org.apache.log4j.PatternLayout
+log4j.appender.R.layout.ConversionPattern=%p %t %c - %m%n
+```
 
 # développement
 Le développement de ce système sera mis en œuvre, sous le langage java en tout utilisant :
