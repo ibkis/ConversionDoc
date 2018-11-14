@@ -139,11 +139,11 @@ Pour réaliser cela l'application sera décomposée en sous service :
 </dependency>        
 ```       
 # Configuration
-##Docx4j
+## Docx4j
 ```properties
 docx4j.Log4j.Configurator.disabled=true
 ```
-##Log4j
+## Log4j
 ```properties
 #log4j.rootLogger=debug, stdout, R
 log4j.rootLogger=OFF
