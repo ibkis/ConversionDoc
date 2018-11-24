@@ -1,6 +1,6 @@
 # Conversion Doc
 Application de Conversion document
-
+## Description
 L'application permettra à un utilisateur de convertir d'un document vers un autre format.
 Pour réaliser cela l'application sera décomposée en sous service :
 - Service permettant d'uploader des fichier (et notification) + notification du processus de conversion
@@ -9,7 +9,8 @@ Pour réaliser cela l'application sera décomposée en sous service :
 - Service permettant de télécharger un document converti
 - Service permettant de retourner l'état des documents
 - service permettant de retourner l'état des documents d'un client
-
+## Architecture
+![Alt text](https://github.com/ibkis/ConversionDoc/blob/master/images/cloud.png)
 # Dependences
 ## Template
     
