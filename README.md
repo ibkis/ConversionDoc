@@ -46,6 +46,11 @@ Le système exécute en arrière-plan des actions permettant de répondre au cli
 
 
 # Boite à Outils
+Le projet est réalisé sous Java EE en employant le Framework Springs facilite le développement des application web avec micro-service, 
+et Maven pour les dépendances c'est à dire les Library a utiliser
+car certaine Library dépend d'un ensemble de Library externe alors cela sera fait de manière abstraite pour nous.
+
+la boite a outils est composer de: 
 
 ## Template
     
