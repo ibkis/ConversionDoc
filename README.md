@@ -15,7 +15,38 @@ les processus dont les evenement interne du systeme
 
 ## Architecture
 ![Alt text](https://github.com/ibkis/ConversionDoc/blob/master/images/cloud.png)
-# Dependences
+
+# Organisation des données
+
+On utilise un Base de Donnée hybernite volatile c’est-à-dire une fois qu’on redémarre le système les données seront effacer, la raison d’utilisation de ce type de stockage est dû au fait, qu’on efface les données tous les 5 minute, cela nous permettra de n’est pas engendrer des trafique externe (ce qui est couteux en terne d’accée et ressource sur open shift).
+Cette base de donnée est construite selon le diagramme de classe suivant :
+![Alt text](https://github.com/ibkis/ConversionDoc/blob/master/images/class.PNG)
+
+# Type de Conversion possible
+- doc, docx, png, jpeg, jpg, ppt, pptx ===> pdf
+- png, Jpg, jpeg,Pdf                   ==> (ppt, pptx)
+- pdf, ppt, pptx                       ==> (png,jpg, jpeg)
+
+# Gestion des clients
+la gestion des clients est modeliser selon 3 senarios :
+## Upload de fichier 
+Un client souhaitant convertir un document, passe par le système ou en utilisation le service d'uploade tout en respectant les paramètre d'entrer, une fois le client uploade le fichier alors le système vérifie la conformité du document par rapport à ce qu'il peut traiter lorsque tout est conforme alors le fichier est pris en compte sinon refuser toute fois le client peut être notifier s'il associe son email. 
+
+![Alt text](https://github.com/ibkis/ConversionDoc/blob/master/images/Upload.jpg)
+## Status d'un fichier
+Après avoir uploade un fichier un identifiant sera associer à ce fichier, ce qui permet au client de voir l'état du document et la télécharger lorsque la conversion est terminée. 
+
+![Alt text](https://github.com/ibkis/ConversionDoc/blob/master/images/details_files.jpg)
+
+## Action Interne du Systeme
+Le système exécute en arrière-plan des actions permettant de répondre au client la demande, dès qu’ un fichier est uploader il est mis dans une file d'attente, ainsi le processus de conversion sera notifier de la présence d'un fichier à traiter, ce processus  prend le fichier en question est la convertie au format attendu et notifie le processus de suppression qui a son tour supprimer le fichier après 5 minute, le processus conversion ne s'endorme que si la file est vide de même que le processus de suppression par contre lui seulement si la base est vide.  
+
+![Alt text](https://github.com/ibkis/ConversionDoc/blob/master/images/Processus%20INterne.jpg)
+
+
+
+# Boite à Outils
+
 ## Template
     
 ```
