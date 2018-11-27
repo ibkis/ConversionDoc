@@ -1,14 +1,18 @@
 # Conversion Doc
 Application de Conversion document
 ## Description
-L'application permettra à un utilisateur de convertir d'un document vers un autre format.
-Pour réaliser cela l'application sera décomposée en sous service :
-- Service permettant d'uploader des fichier (et notification) + notification du processus de conversion
-- Processus la conversion des documents + notification utilisateur(facultatif)
-- Processus de suppression des URL après 5min
-- Service permettant de télécharger un document converti
-- Service permettant de retourner l'état des documents
-- service permettant de retourner l'état des documents d'un client
+L'application permettra à un utilisateur de convertir un document(pdf,image,ppt,pptx,doc,docx) vers un autre format(pdf,image,ppt,pptx).
+Pour réaliser cela l'application composera des services et processus permettant de realiser les taches:
+### Services
+- Upload un fichier cette service permettant d'uploader de(s) fichier(s) tout en precisant le(s) format(s) de sorti, toute fois on peut associer son email lorsque l'on souhaite être notifier a la fin de la conversion
+- Service de téléchargement il permet de telecharger le(s) document(s) apres conversion
+- Service Status de(s) document(s) pour un identifant , permet de visualiser les details des documents pour cette identifiant
+- service Status de tout les documents
+### Processus
+les processus dont les evenement interne du systeme
+- Processus la conversion des documents et notification de l'utilisateur(facultatif) 
+- Processus de suppression des document après 5min de la conversion
+
 ## Architecture
 ![Alt text](https://github.com/ibkis/ConversionDoc/blob/master/images/cloud.png)
 # Dependences
