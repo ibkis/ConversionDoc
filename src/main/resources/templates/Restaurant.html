@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{fragments/layout}"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+
+    <title>Produits </title>
+
+</head>
+
+<body>
+
+<!-- page content -->
+<div class="right_col" role="main" data-layout-fragment="content">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Plain Page</h3>
+            </div>
+
+            <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Plain Page</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="row">
+                            <div class="col-md-55"  th:if="${notorder}" th:each="restaurant : ${restaurants}">
+                                <div class="thumbnail">
+                                    <div class="image view view-first">
+                                        <img style="width: 100%; display: block;" th:src="@{|/images/${restaurant.imag}|}" alt="image">
+                                        <div class="mask">
+                                            <p th:text= "${restaurant.description}"></p>
+                                            <div class="tools tools-bottom">
+                                                <a th:href="@{|/restaurants/${restaurant.id}|}"><i class="fa fa-pencil"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="caption">
+                                        <p th:text= "${restaurant.Nom}"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12" th:if="${isorder}" th:each="restaurant : ${restaurants}">
+                                <div class="x_panel fixed_height_320">
+                                    <div class="x_title">
+                                        <h2>Statistique: <small th:text= "${restaurant.Nom}"></small></h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Settings 1</a>
+                                                    </li>
+                                                    <li><a href="#">Settings 2</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content" style="display: block;">
+                                        <table class="" style="width:100%">
+                                            <tbody><tr>
+                                                <th style="width:37%;">
+                                                    <p></p>
+                                                </th>
+                                                <th>
+                                                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                                        <p class="">QServices</p>
+                                                    </div>
+                                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                        <p class="">Notes /20</p>
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td>
+
+                                                        <img style="width:100px;height:140px; display: block;" th:src="@{|/images/${restaurant.imag}|}" alt="image">
+
+                                                </td>
+                                                <td>
+                                                    <table class="tile_info">
+                                                        <tbody><tr>
+                                                            <td>
+                                                                <p><i class="fa fa-square blue"></i>Nouriture </p>
+                                                            </td>
+                                                            <td th:text= "${restaurant.qnouriture}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <p><i class="fa fa-square green"></i>Salle </p>
+                                                            </td>
+                                                            <td th:text= "${restaurant.qsalle}"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <p><i class="fa fa-square purple"></i>Services </p>
+                                                            </td>
+                                                            <td th:text= "${restaurant.qservice}"></td>
+                                                        </tr>
+
+                                                        </tbody></table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <a class="btn btn-app">
+
+                                                    <i class="fa fa-edit" th:text="${restaurant.moyen}"></i>
+                                                </a>
+
+                                            </tr>
+                                            </tbody></table>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+
+
+</body>
+</html>
+
