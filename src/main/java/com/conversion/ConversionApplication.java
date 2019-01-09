@@ -36,7 +36,7 @@ import org.apache.poi.xslf.usermodel.XSLFSlide;
 
 public class ConversionApplication {
 
-    public static void main(String[] args) throws Exception {
+    public  void mainp() throws Exception {
         //createPDF();
         //createPDF();
        // StaticVariables.DocToPDF("uploads/1/rapporttp2.docx","uploads/1/rapporttp3.pdf");
